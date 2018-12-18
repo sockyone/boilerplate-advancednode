@@ -7,10 +7,13 @@ const pug = require('pug');
 
 const app = express();
 
+
 fccTesting(app); //For FCC testing purposes
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set('view engine','pug');
 
 app.route('/')
   .get((req, res) => {
