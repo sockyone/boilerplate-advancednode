@@ -3,6 +3,7 @@
 const express     = require('express');
 const bodyParser  = require('body-parser');
 const fccTesting  = require('./freeCodeCamp/fcctesting.js');
+const pug = require('pug');
 
 const app = express();
 
@@ -13,7 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.route('/')
   .get((req, res) => {
-    res.sendFile(process.cwd() + '/views/index.html');
+    //res.sendFile(process.cwd() + '/views/index.html');
+    res.render(process.cwd() + '/views/pug/index.pug');
   });
 
 app.listen(process.env.PORT || 3000, () => {
